@@ -1,15 +1,32 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  
+
 <head>
-	<title>bubylou.com</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Bubylou.com</title>
+	
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="js/shortcuts.js"></script>
+	<script src="js/hotkeys.js"></script>
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<script>
+	var hotlink1 = 'cats';
+	var hotlink2 = 'movies';
+	var hotlink2 = 'torrent';
+	</script>
 </head>
-  
+
 <body>
-	<a href=cats><h1>Cats</h1></a>
-	<a href=movies><h1>Movies</h1></a>
+	<ul id="mainNav">
+	<li id="link1"><a href="cats">Cats</a></li>
+	<li id="link2"><a href="movies">Movies</a></li>
+	<li id="link3"><a href="torrent">Torrent</a></li>
+	</ul>
 </body>
 
 </html>
