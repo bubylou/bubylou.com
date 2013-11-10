@@ -6,7 +6,7 @@ html, body {
 }
 
 img {
-	margin: 0;
+	vertical-align: middle;
 	width: 12.5%;
 	height: 40%;
 }
