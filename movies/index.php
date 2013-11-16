@@ -9,8 +9,13 @@
 	<?php
 	$dir = "movies.link";
 	$names = preg_grep('/^([^.])/', scandir($dir));
+
 	foreach($names as $name) {
-	echo '<a href="movie.php?id='.$name.'"><img src="'.$dir.'/'.$name.'/'.$name.'-web.jpg'.'"/></a>'; 
+		$file = "$dir/$name/$name";
+		$info = file_get_contents($file . ".nfo");
+		preg_match_all('/="(.*?)w342(.*?)\.jpg/', $info, $text);
+		$url = str_replace("=\"", "", $text[0]);
+		echo '<a href="movie.php?id='.$name.'"><img src="'.$url[0].'"/></a>';
 	}
 	?>
 </head>

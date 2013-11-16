@@ -8,13 +8,18 @@
 	<?php
 	$dir = "movies.link";
 	$id = $_GET['id'];
-	echo '<video class="center" src="'.$dir.'/'.$id.'/'.$id.'.mp4" autoplay="" controls=""/>';
+	$file = "$dir/$id/$id";
+	$info = file_get_contents($file . ".nfo");
+	preg_match_all('/="(.*?)w780(.*?)\.jpg/', $info, $text);
+	$url = str_replace("=\"", "", $text[0]);
+	echo '<video class="center" src="'.$file.'.mp4" autoplay="" controls=""/>';
 	?>
 
 	<style>
-	body {
-		background-image:url('<?php echo "$dir/$id/$id-fanart.jpg" ?>');
-		vertical-align: middle;
+	html {
+		background-image:url(<?php echo $url[0] ?>); 
+		background-size: 100% auto;
+		background-repeat:no-repeat;
 	}
 	.center {
 		margin: auto;
@@ -25,7 +30,7 @@
 		width: 50%;
 	}
 	</style>
-	
+
 </head>
 
 <body>
