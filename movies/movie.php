@@ -12,14 +12,20 @@
 	$info = file_get_contents($file . ".nfo");
 	preg_match_all('/="(.*?)w780(.*?)\.jpg/', $info, $text);
 	$url = str_replace("=\"", "", $text[0]);
-	echo '<video class="center" src="'.$file.'.mp4" autoplay="" controls=""/>';
+	echo '<video class=center autoplay="" controls="">';
+	echo '<source src="'.$file.'.mp4"/>';
+	echo '<source src="'.$file.'.mkv"/>';
+	echo '</video>';
 	?>
 
 	<style>
 	html {
 		background-image:url(<?php echo $url[0] ?>); 
-		background-size: 100% auto;
-		background-repeat:no-repeat;
+		background-color: rgb(0, 0, 0);
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: 50% 0%;
 	}
 	.center {
 		margin: auto;
